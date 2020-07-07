@@ -13,7 +13,7 @@ func InjectDB() infra.SqlHandler {
 }
 
 func InjectTodoRepository() repository.TodoRepository {
-	sqlhandler := InjectDB()
+	sqlHandler := InjectDB()
 	return infra.NewTodoRepository(sqlHandler)
 }
 

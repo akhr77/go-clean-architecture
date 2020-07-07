@@ -17,7 +17,7 @@ type todoUsecase struct {
 }
 
 func NewTodoUsecase(todoRepo repository.TodoRepository) TodoUsecase {
-	todoUsecase := TodoUsecase{todoRepo: todoRepo}
+	todoUsecase := todoUsecase{todoRepo: todoRepo}
 	return &todoUsecase
 }
 
@@ -31,7 +31,7 @@ func (usecase *todoUsecase) View() ([]*model.Todo, error) {
 	return todo, err
 }
 
-func (usecase *TodoUsecase) Add(todo *model.Todo) error {
+func (usecase *todoUsecase) Add(todo *model.Todo) error {
 	_, err := usecase.todoRepo.Create(todo)
 	return err
 }
