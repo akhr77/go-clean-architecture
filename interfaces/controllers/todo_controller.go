@@ -44,8 +44,8 @@ func (controller *TodoController) Search(c Context) error {
 }
 
 func (controller *TodoController) Add(c Context) error {
-	var todo domain.Todo
-	c.Bind(todo)
+	todo := domain.Todo{}
+	c.Bind(&todo)
 	err := controller.Interactor.Add(todo)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, NewError(err))
@@ -56,7 +56,7 @@ func (controller *TodoController) Add(c Context) error {
 }
 
 func (controller *TodoController) Edit(c Context) error {
-	var todo domain.Todo
+	todo := domain.Todo{}
 	c.Bind(todo)
 	err := controller.Interactor.Edit(todo)
 	if err != nil {
